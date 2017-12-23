@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         totalTextView = (TextView) findViewById(R.id.totalTextView);
-        percentageTxt = (EditText) findViewById(R.id.numberTxt);
+        percentageTxt = (EditText) findViewById(R.id.percentageTxt);
         numberTxt = (EditText) findViewById(R.id.numberTxt);
 
         Button calcBtn = (Button) findViewById(R.id.calcBtn);
@@ -36,15 +36,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 float percentage = Float.parseFloat(percentageTxt.getText().toString());
-                float dec = percentage / 100;
-                float total = dec * Float.parseFloat(numberTxt.getText().toString());
 
+                float dec = (percentage / 100);
+
+                float number = Float.parseFloat(numberTxt.getText().toString());
+
+                float total = dec * number;
+
+                //totalTextView.setText(Float.toString(percentage));
                 totalTextView.setText(Float.toString(total));
 
             }
         });
     }
-//Test/
+//Test//
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
